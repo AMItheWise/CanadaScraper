@@ -41,9 +41,9 @@ dev = [
 canadastats = "canadastats.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/<your-username>/<your-repo>"
-Issues = "https://github.com/<your-username>/<your-repo>/issues"
-Repository = "https://github.com/<your-username>/<your-repo>"
+Homepage = "https://github.com/AMItheWise/CanadaScraper"
+Issues = "https://github.com/AMItheWise/CanadaScraper/issues"
+Repository = "https://github.com/AMItheWise/CanadaScraper"
 
 [tool.setuptools]
 include-package-data = true
