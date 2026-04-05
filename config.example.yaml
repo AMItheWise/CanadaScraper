@@ -1,0 +1,69 @@
+﻿database:
+  url: sqlite:///data/canada_stats.db
+
+sync:
+  manual_only: true
+
+http:
+  timeout_seconds: 30
+  max_retries: 3
+  user_agents:
+    - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36
+    - Mozilla/5.0 (Macintosh; Intel Mac OS X 14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36
+    - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36
+
+throttle:
+  domain_rules:
+    - domain: www.rseq-stats.ca
+      min_delay_ms: 400
+      max_delay_ms: 900
+    - domain: s1.rseq.ca
+      min_delay_ms: 400
+      max_delay_ms: 900
+    - domain: hmhshl.com
+      min_delay_ms: 700
+      max_delay_ms: 1400
+    - domain: www.bchighschoolfootball.com
+      min_delay_ms: 600
+      max_delay_ms: 1300
+    - domain: www.bcboysbasketball.com
+      min_delay_ms: 600
+      max_delay_ms: 1300
+
+sources:
+  enabled:
+    rseq: true
+    hmhshl: true
+    bc_football: true
+    bc_basketball: true
+  rseq:
+    league_urls:
+      - https://www.rseq-stats.ca/scolaire/basketball-benj-f-d1
+      - https://www.rseq-stats.ca/scolaire/basketball-benj-f-d2
+      - https://www.rseq-stats.ca/scolaire/basketball-benj-m-d1
+      - https://www.rseq-stats.ca/scolaire/basketball-benj-m-d2
+      - https://www.rseq-stats.ca/scolaire/basketball-cad-f-d1
+      - https://www.rseq-stats.ca/scolaire/basketball-cad-f-d2
+      - https://www.rseq-stats.ca/scolaire/basketball-cad-m-d1
+      - https://www.rseq-stats.ca/scolaire/basketball-cad-m-d2
+      - https://www.rseq-stats.ca/scolaire/basketball-juv-f-d1
+      - https://www.rseq-stats.ca/scolaire/basketball-juv-f-d2
+      - https://www.rseq-stats.ca/scolaire/basketball-juv-m-d1
+      - https://www.rseq-stats.ca/scolaire/basketball-juv-m-d2
+      - https://www.rseq-stats.ca/scolaire/football-cad-d1
+      - https://www.rseq-stats.ca/scolaire/football-juv-d1
+      - https://www.rseq-stats.ca/scolaire/football-juv-d2
+      - https://www.rseq-stats.ca/collegial/basketball-f-d1
+      - https://www.rseq-stats.ca/collegial/basketball-m-d1
+      - https://www.rseq-stats.ca/collegial/football-d1
+      - https://www.rseq-stats.ca/collegial/football-d2
+      - https://www.rseq-stats.ca/collegial/football-d3
+      - https://www.rseq-stats.ca/universitaire/basketball-f
+      - https://www.rseq-stats.ca/universitaire/basketball-m
+      - https://www.rseq-stats.ca/universitaire/football
+  hmhshl:
+    allow_api: false
+  bc_football:
+    seed_url: https://www.bchighschoolfootball.com/leagues/front_pagePro.cfm?clientID=652&leagueID=6713
+  bc_basketball:
+    seed_url: https://www.bcboysbasketball.com/leagues/slider.cfm?leagueID=0&clientID=2192&link=Pro
